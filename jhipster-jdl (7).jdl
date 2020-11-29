@@ -1,0 +1,57 @@
+
+
+/**
+ * The Employee entity.
+ */
+entity Post {
+	/**
+	* The firstname attribute.
+	*/
+	title String,
+	content String,
+	datePub LocalDate,
+	time Instant,
+	
+}
+
+entity FilesPost {
+	path String,
+	type String
+}
+
+entity Comments {
+	contentText String,
+	datePub LocalDate,
+	time Instant,
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Post to Comments{Comments},
+	/**
+	* A relationship
+	*/
+	Post to FilesPost{FilesPost}
+}
+
+relationship ManyToOne {
+	Comments{parent} to Comments
+}
+
+// defining multiple oneToOne relationships
+
+
+// Set pagination options
+paginate Post, Comments with infinite-scroll
+paginate FilesPost with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+filter *
+
+// Set an angular suffix
+

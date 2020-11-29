@@ -1,0 +1,49 @@
+{
+  "name": "Post",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "javadoc": "The firstname attribute."
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "datePub",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "time",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comments",
+      "otherEntityRelationshipName": "comments",
+      "relationshipName": "comments"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "filesPost",
+      "otherEntityRelationshipName": "filesPost",
+      "javadoc": "A relationship",
+      "relationshipName": "filesPost"
+    }
+  ],
+  "changelogDate": "20201128162425",
+  "javadoc": "The Employee entity.",
+  "entityTableName": "post",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

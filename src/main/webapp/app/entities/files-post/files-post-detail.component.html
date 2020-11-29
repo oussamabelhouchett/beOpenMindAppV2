@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="filesPost">
+            <h2><span>Files Post</span> {{ filesPost.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Path</span></dt>
+                <dd>
+                    <span>{{ filesPost.path }}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{ filesPost.type }}</span>
+                </dd>
+                <dt><span>Files Post</span></dt>
+                <dd>
+                    <div *ngIf="filesPost.filesPostId">
+                        <a [routerLink]="['/post', filesPost.filesPostId, 'view']">{{ filesPost.filesPostId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/files-post', filesPost.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
