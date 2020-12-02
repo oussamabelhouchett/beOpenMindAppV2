@@ -13,6 +13,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
+import { LoginModule } from 'app/login/login.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ErrorComponent } from './layouts/error/error.component';
     BeOpenMindAppV2HomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     BeOpenMindAppV2EntityModule,
+    LoginModule,
     BeOpenMindAppV2AppRoutingModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
