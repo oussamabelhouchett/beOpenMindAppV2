@@ -14,9 +14,15 @@
                                  referencedColumnNames="id"
                                  referencedTableName="comments"/>
 
-        <addForeignKeyConstraint baseColumnNames="comments_id"
+        <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="comments"
-                                 constraintName="fk_comments_comments_id"
+                                 constraintName="fk_comments_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="post_id"
+                                 baseTableName="comments"
+                                 constraintName="fk_comments_post_id"
                                  referencedColumnNames="id"
                                  referencedTableName="post"/>
 

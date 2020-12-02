@@ -24,9 +24,16 @@
     },
     {
       "relationshipType": "many-to-one",
+      "otherEntityName": "applicationUser",
+      "otherEntityRelationshipName": "comments",
+      "relationshipName": "user",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
       "otherEntityName": "post",
       "otherEntityRelationshipName": "comments",
-      "relationshipName": "comments",
+      "relationshipName": "post",
       "otherEntityField": "id"
     }
   ],

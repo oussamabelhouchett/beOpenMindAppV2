@@ -8,8 +8,13 @@ export interface IPost {
   content?: string;
   datePub?: Moment;
   time?: Moment;
+  isNameVisibale?: boolean;
+  isPhotoVisibale?: boolean;
+  nbreLike?: number;
+  nbreComments?: number;
   comments?: IComments[];
   filesPosts?: IFilesPost[];
+  userId?: number;
 }
 
 export class Post implements IPost {
@@ -19,7 +24,15 @@ export class Post implements IPost {
     public content?: string,
     public datePub?: Moment,
     public time?: Moment,
+    public isNameVisibale?: boolean,
+    public isPhotoVisibale?: boolean,
+    public nbreLike?: number,
+    public nbreComments?: number,
     public comments?: IComments[],
-    public filesPosts?: IFilesPost[]
-  ) {}
+    public filesPosts?: IFilesPost[],
+    public userId?: number
+  ) {
+    this.isNameVisibale = this.isNameVisibale || false;
+    this.isPhotoVisibale = this.isPhotoVisibale || false;
+  }
 }

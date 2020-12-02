@@ -9,10 +9,12 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
 import { IComments, Comments } from 'app/shared/model/comments.model';
 import { CommentsService } from './comments.service';
+import { IApplicationUser } from 'app/shared/model/application-user.model';
+import { ApplicationUserService } from 'app/entities/application-user/application-user.service';
 import { IPost } from 'app/shared/model/post.model';
 import { PostService } from 'app/entities/post/post.service';
 
-type SelectableEntity = IComments | IPost;
+type SelectableEntity = IComments | IApplicationUser | IPost;
 
 @Component({
   selector: 'jhi-comments-update',
@@ -21,6 +23,7 @@ type SelectableEntity = IComments | IPost;
 export class CommentsUpdateComponent implements OnInit {
   isSaving = false;
   commentsCollection: IComments[] = [];
+  applicationusers: IApplicationUser[] = [];
   posts: IPost[] = [];
   datePubDp: any;
 
@@ -30,11 +33,13 @@ export class CommentsUpdateComponent implements OnInit {
     datePub: [],
     time: [],
     parentId: [],
-    commentsId: [],
+    userId: [],
+    postId: [],
   });
 
   constructor(
     protected commentsService: CommentsService,
+    protected applicationUserService: ApplicationUserService,
     protected postService: PostService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -51,6 +56,8 @@ export class CommentsUpdateComponent implements OnInit {
 
       this.commentsService.query().subscribe((res: HttpResponse<IComments[]>) => (this.commentsCollection = res.body || []));
 
+      this.applicationUserService.query().subscribe((res: HttpResponse<IApplicationUser[]>) => (this.applicationusers = res.body || []));
+
       this.postService.query().subscribe((res: HttpResponse<IPost[]>) => (this.posts = res.body || []));
     });
   }
@@ -62,7 +69,8 @@ export class CommentsUpdateComponent implements OnInit {
       datePub: comments.datePub,
       time: comments.time ? comments.time.format(DATE_TIME_FORMAT) : null,
       parentId: comments.parentId,
-      commentsId: comments.commentsId,
+      userId: comments.userId,
+      postId: comments.postId,
     });
   }
 
@@ -88,7 +96,8 @@ export class CommentsUpdateComponent implements OnInit {
       datePub: this.editForm.get(['datePub'])!.value,
       time: this.editForm.get(['time'])!.value ? moment(this.editForm.get(['time'])!.value, DATE_TIME_FORMAT) : undefined,
       parentId: this.editForm.get(['parentId'])!.value,
-      commentsId: this.editForm.get(['commentsId'])!.value,
+      userId: this.editForm.get(['userId'])!.value,
+      postId: this.editForm.get(['postId'])!.value,
     };
   }
 
