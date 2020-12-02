@@ -24,6 +24,10 @@ export class PostUpdateComponent implements OnInit {
     content: [],
     datePub: [],
     time: [],
+    isNameVisibale: [],
+    isPhotoVisibale: [],
+    nbreLike: [],
+    nbreComments: [],
   });
 
   constructor(protected postService: PostService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -46,6 +50,10 @@ export class PostUpdateComponent implements OnInit {
       content: post.content,
       datePub: post.datePub,
       time: post.time ? post.time.format(DATE_TIME_FORMAT) : null,
+      isNameVisibale: post.isNameVisibale,
+      isPhotoVisibale: post.isPhotoVisibale,
+      nbreLike: post.nbreLike,
+      nbreComments: post.nbreComments,
     });
   }
 
@@ -71,6 +79,10 @@ export class PostUpdateComponent implements OnInit {
       content: this.editForm.get(['content'])!.value,
       datePub: this.editForm.get(['datePub'])!.value,
       time: this.editForm.get(['time'])!.value ? moment(this.editForm.get(['time'])!.value, DATE_TIME_FORMAT) : undefined,
+      isNameVisibale: this.editForm.get(['isNameVisibale'])!.value,
+      isPhotoVisibale: this.editForm.get(['isPhotoVisibale'])!.value,
+      nbreLike: this.editForm.get(['nbreLike'])!.value,
+      nbreComments: this.editForm.get(['nbreComments'])!.value,
     };
   }
 

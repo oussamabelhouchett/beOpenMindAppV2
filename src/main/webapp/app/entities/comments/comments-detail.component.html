@@ -26,10 +26,10 @@
                         <a [routerLink]="['/comments', comments.parentId, 'view']">{{ comments.parentId }}</a>
                     </div>
                 </dd>
-                <dt><span>Comments</span></dt>
+                <dt><span>Post</span></dt>
                 <dd>
-                    <div *ngIf="comments.commentsId">
-                        <a [routerLink]="['/post', comments.commentsId, 'view']">{{ comments.commentsId }}</a>
+                    <div *ngIf="comments.postId">
+                        <a [routerLink]="['/post', comments.postId, 'view']">{{ comments.postId }}</a>
                     </div>
                 </dd>
             </dl>

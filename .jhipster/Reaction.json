@@ -1,0 +1,39 @@
+{
+  "name": "Reaction",
+  "fields": [
+    {
+      "fieldName": "isComment",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "isLike",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "applicationUser",
+      "otherEntityRelationshipName": "reaction",
+      "relationshipName": "user"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "post",
+      "otherEntityRelationshipName": "reaction",
+      "relationshipName": "post",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201202143346",
+  "entityTableName": "reaction",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

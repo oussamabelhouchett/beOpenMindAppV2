@@ -1,12 +1,14 @@
 import { Moment } from 'moment';
+import { IApplicationUser } from 'app/shared/model/application-user.model';
 
 export interface IComments {
   id?: number;
   contentText?: string;
   datePub?: Moment;
   time?: Moment;
+  users?: IApplicationUser[];
   parentId?: number;
-  commentsId?: number;
+  postId?: number;
 }
 
 export class Comments implements IComments {
@@ -15,7 +17,8 @@ export class Comments implements IComments {
     public contentText?: string,
     public datePub?: Moment,
     public time?: Moment,
+    public users?: IApplicationUser[],
     public parentId?: number,
-    public commentsId?: number
+    public postId?: number
   ) {}
 }

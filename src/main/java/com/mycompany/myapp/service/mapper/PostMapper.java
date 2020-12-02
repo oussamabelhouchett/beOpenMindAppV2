@@ -17,6 +17,8 @@ public interface PostMapper extends EntityMapper<PostDTO, Post> {
     @Mapping(target = "removeComments", ignore = true)
     @Mapping(target = "filesPosts", ignore = true)
     @Mapping(target = "removeFilesPost", ignore = true)
+    @Mapping(target = "users", ignore = true)
+    @Mapping(target = "removeUser", ignore = true)
     Post toEntity(PostDTO postDTO);
 
     default Post fromId(Long id) {

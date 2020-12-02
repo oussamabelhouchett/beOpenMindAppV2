@@ -27,9 +27,6 @@ public class Post implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /**
-     * The firstname attribute.
-     */
     @Column(name = "title")
     private String title;
 
@@ -42,16 +39,29 @@ public class Post implements Serializable {
     @Column(name = "time")
     private Instant time;
 
-    @OneToMany(mappedBy = "comments")
+    @Column(name = "is_name_visibale")
+    private Boolean isNameVisibale;
+
+    @Column(name = "is_photo_visibale")
+    private Boolean isPhotoVisibale;
+
+    @Column(name = "nbre_like")
+    private Integer nbreLike;
+
+    @Column(name = "nbre_comments")
+    private Integer nbreComments;
+
+    @OneToMany(mappedBy = "post")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Comments> comments = new HashSet<>();
 
-    /**
-     * A relationship
-     */
     @OneToMany(mappedBy = "filesPost")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<FilesPost> filesPosts = new HashSet<>();
+
+    @OneToMany(mappedBy = "post")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<ApplicationUser> users = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -114,6 +124,58 @@ public class Post implements Serializable {
         this.time = time;
     }
 
+    public Boolean isIsNameVisibale() {
+        return isNameVisibale;
+    }
+
+    public Post isNameVisibale(Boolean isNameVisibale) {
+        this.isNameVisibale = isNameVisibale;
+        return this;
+    }
+
+    public void setIsNameVisibale(Boolean isNameVisibale) {
+        this.isNameVisibale = isNameVisibale;
+    }
+
+    public Boolean isIsPhotoVisibale() {
+        return isPhotoVisibale;
+    }
+
+    public Post isPhotoVisibale(Boolean isPhotoVisibale) {
+        this.isPhotoVisibale = isPhotoVisibale;
+        return this;
+    }
+
+    public void setIsPhotoVisibale(Boolean isPhotoVisibale) {
+        this.isPhotoVisibale = isPhotoVisibale;
+    }
+
+    public Integer getNbreLike() {
+        return nbreLike;
+    }
+
+    public Post nbreLike(Integer nbreLike) {
+        this.nbreLike = nbreLike;
+        return this;
+    }
+
+    public void setNbreLike(Integer nbreLike) {
+        this.nbreLike = nbreLike;
+    }
+
+    public Integer getNbreComments() {
+        return nbreComments;
+    }
+
+    public Post nbreComments(Integer nbreComments) {
+        this.nbreComments = nbreComments;
+        return this;
+    }
+
+    public void setNbreComments(Integer nbreComments) {
+        this.nbreComments = nbreComments;
+    }
+
     public Set<Comments> getComments() {
         return comments;
     }
@@ -125,13 +187,13 @@ public class Post implements Serializable {
 
     public Post addComments(Comments comments) {
         this.comments.add(comments);
-        comments.setComments(this);
+        comments.setPost(this);
         return this;
     }
 
     public Post removeComments(Comments comments) {
         this.comments.remove(comments);
-        comments.setComments(null);
+        comments.setPost(null);
         return this;
     }
 
@@ -163,6 +225,31 @@ public class Post implements Serializable {
     public void setFilesPosts(Set<FilesPost> filesPosts) {
         this.filesPosts = filesPosts;
     }
+
+    public Set<ApplicationUser> getUsers() {
+        return users;
+    }
+
+    public Post users(Set<ApplicationUser> applicationUsers) {
+        this.users = applicationUsers;
+        return this;
+    }
+
+    public Post addUser(ApplicationUser applicationUser) {
+        this.users.add(applicationUser);
+        applicationUser.setPost(this);
+        return this;
+    }
+
+    public Post removeUser(ApplicationUser applicationUser) {
+        this.users.remove(applicationUser);
+        applicationUser.setPost(null);
+        return this;
+    }
+
+    public void setUsers(Set<ApplicationUser> applicationUsers) {
+        this.users = applicationUsers;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -190,6 +277,10 @@ public class Post implements Serializable {
             ", content='" + getContent() + "'" +
             ", datePub='" + getDatePub() + "'" +
             ", time='" + getTime() + "'" +
+            ", isNameVisibale='" + isIsNameVisibale() + "'" +
+            ", isPhotoVisibale='" + isIsPhotoVisibale() + "'" +
+            ", nbreLike=" + getNbreLike() +
+            ", nbreComments=" + getNbreComments() +
             "}";
     }
 }

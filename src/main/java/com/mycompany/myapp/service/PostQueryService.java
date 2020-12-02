@@ -107,6 +107,18 @@ public class PostQueryService extends QueryService<Post> {
             if (criteria.getTime() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getTime(), Post_.time));
             }
+            if (criteria.getIsNameVisibale() != null) {
+                specification = specification.and(buildSpecification(criteria.getIsNameVisibale(), Post_.isNameVisibale));
+            }
+            if (criteria.getIsPhotoVisibale() != null) {
+                specification = specification.and(buildSpecification(criteria.getIsPhotoVisibale(), Post_.isPhotoVisibale));
+            }
+            if (criteria.getNbreLike() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getNbreLike(), Post_.nbreLike));
+            }
+            if (criteria.getNbreComments() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getNbreComments(), Post_.nbreComments));
+            }
             if (criteria.getCommentsId() != null) {
                 specification = specification.and(buildSpecification(criteria.getCommentsId(),
                     root -> root.join(Post_.comments, JoinType.LEFT).get(Comments_.id)));
@@ -114,6 +126,10 @@ public class PostQueryService extends QueryService<Post> {
             if (criteria.getFilesPostId() != null) {
                 specification = specification.and(buildSpecification(criteria.getFilesPostId(),
                     root -> root.join(Post_.filesPosts, JoinType.LEFT).get(FilesPost_.id)));
+            }
+            if (criteria.getUserId() != null) {
+                specification = specification.and(buildSpecification(criteria.getUserId(),
+                    root -> root.join(Post_.users, JoinType.LEFT).get(ApplicationUser_.id)));
             }
         }
         return specification;

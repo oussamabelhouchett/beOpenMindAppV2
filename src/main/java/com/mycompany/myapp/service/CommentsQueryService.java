@@ -104,13 +104,17 @@ public class CommentsQueryService extends QueryService<Comments> {
             if (criteria.getTime() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getTime(), Comments_.time));
             }
+            if (criteria.getUserId() != null) {
+                specification = specification.and(buildSpecification(criteria.getUserId(),
+                    root -> root.join(Comments_.users, JoinType.LEFT).get(ApplicationUser_.id)));
+            }
             if (criteria.getParentId() != null) {
                 specification = specification.and(buildSpecification(criteria.getParentId(),
                     root -> root.join(Comments_.parent, JoinType.LEFT).get(Comments_.id)));
             }
-            if (criteria.getCommentsId() != null) {
-                specification = specification.and(buildSpecification(criteria.getCommentsId(),
-                    root -> root.join(Comments_.comments, JoinType.LEFT).get(Post_.id)));
+            if (criteria.getPostId() != null) {
+                specification = specification.and(buildSpecification(criteria.getPostId(),
+                    root -> root.join(Comments_.post, JoinType.LEFT).get(Post_.id)));
             }
         }
         return specification;

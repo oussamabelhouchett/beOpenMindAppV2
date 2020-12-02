@@ -45,6 +45,10 @@
                     <th scope="col"  jhiSortBy="content"><span>Content</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="datePub"><span>Date Pub</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="time"><span>Time</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isNameVisibale"><span>Is Name Visibale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isPhotoVisibale"><span>Is Photo Visibale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbreLike"><span>Nbre Like</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbreComments"><span>Nbre Comments</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -55,6 +59,10 @@
                     <td>{{ post.content }}</td>
                     <td>{{ post.datePub | date:'mediumDate' }}</td>
                     <td>{{ post.time | date:'medium' }}</td>
+                    <td>{{ post.isNameVisibale }}</td>
+                    <td>{{ post.isPhotoVisibale }}</td>
+                    <td>{{ post.nbreLike }}</td>
+                    <td>{{ post.nbreComments }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

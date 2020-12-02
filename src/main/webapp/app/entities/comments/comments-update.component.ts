@@ -30,7 +30,7 @@ export class CommentsUpdateComponent implements OnInit {
     datePub: [],
     time: [],
     parentId: [],
-    commentsId: [],
+    postId: [],
   });
 
   constructor(
@@ -62,7 +62,7 @@ export class CommentsUpdateComponent implements OnInit {
       datePub: comments.datePub,
       time: comments.time ? comments.time.format(DATE_TIME_FORMAT) : null,
       parentId: comments.parentId,
-      commentsId: comments.commentsId,
+      postId: comments.postId,
     });
   }
 
@@ -88,7 +88,7 @@ export class CommentsUpdateComponent implements OnInit {
       datePub: this.editForm.get(['datePub'])!.value,
       time: this.editForm.get(['time'])!.value ? moment(this.editForm.get(['time'])!.value, DATE_TIME_FORMAT) : undefined,
       parentId: this.editForm.get(['parentId'])!.value,
-      commentsId: this.editForm.get(['commentsId'])!.value,
+      postId: this.editForm.get(['postId'])!.value,
     };
   }
 

@@ -34,9 +34,11 @@ public class CommentsCriteria implements Serializable, Criteria {
 
     private InstantFilter time;
 
+    private LongFilter userId;
+
     private LongFilter parentId;
 
-    private LongFilter commentsId;
+    private LongFilter postId;
 
     public CommentsCriteria() {
     }
@@ -46,8 +48,9 @@ public class CommentsCriteria implements Serializable, Criteria {
         this.contentText = other.contentText == null ? null : other.contentText.copy();
         this.datePub = other.datePub == null ? null : other.datePub.copy();
         this.time = other.time == null ? null : other.time.copy();
+        this.userId = other.userId == null ? null : other.userId.copy();
         this.parentId = other.parentId == null ? null : other.parentId.copy();
-        this.commentsId = other.commentsId == null ? null : other.commentsId.copy();
+        this.postId = other.postId == null ? null : other.postId.copy();
     }
 
     @Override
@@ -87,6 +90,14 @@ public class CommentsCriteria implements Serializable, Criteria {
         this.time = time;
     }
 
+    public LongFilter getUserId() {
+        return userId;
+    }
+
+    public void setUserId(LongFilter userId) {
+        this.userId = userId;
+    }
+
     public LongFilter getParentId() {
         return parentId;
     }
@@ -95,12 +106,12 @@ public class CommentsCriteria implements Serializable, Criteria {
         this.parentId = parentId;
     }
 
-    public LongFilter getCommentsId() {
-        return commentsId;
+    public LongFilter getPostId() {
+        return postId;
     }
 
-    public void setCommentsId(LongFilter commentsId) {
-        this.commentsId = commentsId;
+    public void setPostId(LongFilter postId) {
+        this.postId = postId;
     }
 
 
@@ -118,8 +129,9 @@ public class CommentsCriteria implements Serializable, Criteria {
             Objects.equals(contentText, that.contentText) &&
             Objects.equals(datePub, that.datePub) &&
             Objects.equals(time, that.time) &&
+            Objects.equals(userId, that.userId) &&
             Objects.equals(parentId, that.parentId) &&
-            Objects.equals(commentsId, that.commentsId);
+            Objects.equals(postId, that.postId);
     }
 
     @Override
@@ -129,8 +141,9 @@ public class CommentsCriteria implements Serializable, Criteria {
         contentText,
         datePub,
         time,
+        userId,
         parentId,
-        commentsId
+        postId
         );
     }
 
@@ -142,8 +155,9 @@ public class CommentsCriteria implements Serializable, Criteria {
                 (contentText != null ? "contentText=" + contentText + ", " : "") +
                 (datePub != null ? "datePub=" + datePub + ", " : "") +
                 (time != null ? "time=" + time + ", " : "") +
+                (userId != null ? "userId=" + userId + ", " : "") +
                 (parentId != null ? "parentId=" + parentId + ", " : "") +
-                (commentsId != null ? "commentsId=" + commentsId + ", " : "") +
+                (postId != null ? "postId=" + postId + ", " : "") +
             "}";
     }
 

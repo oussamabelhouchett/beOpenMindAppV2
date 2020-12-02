@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
 import { IComments } from 'app/shared/model/comments.model';
 import { IFilesPost } from 'app/shared/model/files-post.model';
+import { IApplicationUser } from 'app/shared/model/application-user.model';
 
 export interface IPost {
   id?: number;
@@ -8,8 +9,13 @@ export interface IPost {
   content?: string;
   datePub?: Moment;
   time?: Moment;
+  isNameVisibale?: boolean;
+  isPhotoVisibale?: boolean;
+  nbreLike?: number;
+  nbreComments?: number;
   comments?: IComments[];
   filesPosts?: IFilesPost[];
+  users?: IApplicationUser[];
 }
 
 export class Post implements IPost {
@@ -19,7 +25,15 @@ export class Post implements IPost {
     public content?: string,
     public datePub?: Moment,
     public time?: Moment,
+    public isNameVisibale?: boolean,
+    public isPhotoVisibale?: boolean,
+    public nbreLike?: number,
+    public nbreComments?: number,
     public comments?: IComments[],
-    public filesPosts?: IFilesPost[]
-  ) {}
+    public filesPosts?: IFilesPost[],
+    public users?: IApplicationUser[]
+  ) {
+    this.isNameVisibale = this.isNameVisibale || false;
+    this.isPhotoVisibale = this.isPhotoVisibale || false;
+  }
 }

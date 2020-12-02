@@ -20,7 +20,7 @@ public class CommentsDTO implements Serializable {
 
     private Long parentId;
 
-    private Long commentsId;
+    private Long postId;
     
     public Long getId() {
         return id;
@@ -62,12 +62,12 @@ public class CommentsDTO implements Serializable {
         this.parentId = commentsId;
     }
 
-    public Long getCommentsId() {
-        return commentsId;
+    public Long getPostId() {
+        return postId;
     }
 
-    public void setCommentsId(Long postId) {
-        this.commentsId = postId;
+    public void setPostId(Long postId) {
+        this.postId = postId;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class CommentsDTO implements Serializable {
             ", datePub='" + getDatePub() + "'" +
             ", time='" + getTime() + "'" +
             ", parentId=" + getParentId() +
-            ", commentsId=" + getCommentsId() +
+            ", postId=" + getPostId() +
             "}";
     }
 }

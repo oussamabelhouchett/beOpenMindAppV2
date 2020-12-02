@@ -36,9 +36,19 @@ public class PostCriteria implements Serializable, Criteria {
 
     private InstantFilter time;
 
+    private BooleanFilter isNameVisibale;
+
+    private BooleanFilter isPhotoVisibale;
+
+    private IntegerFilter nbreLike;
+
+    private IntegerFilter nbreComments;
+
     private LongFilter commentsId;
 
     private LongFilter filesPostId;
+
+    private LongFilter userId;
 
     public PostCriteria() {
     }
@@ -49,8 +59,13 @@ public class PostCriteria implements Serializable, Criteria {
         this.content = other.content == null ? null : other.content.copy();
         this.datePub = other.datePub == null ? null : other.datePub.copy();
         this.time = other.time == null ? null : other.time.copy();
+        this.isNameVisibale = other.isNameVisibale == null ? null : other.isNameVisibale.copy();
+        this.isPhotoVisibale = other.isPhotoVisibale == null ? null : other.isPhotoVisibale.copy();
+        this.nbreLike = other.nbreLike == null ? null : other.nbreLike.copy();
+        this.nbreComments = other.nbreComments == null ? null : other.nbreComments.copy();
         this.commentsId = other.commentsId == null ? null : other.commentsId.copy();
         this.filesPostId = other.filesPostId == null ? null : other.filesPostId.copy();
+        this.userId = other.userId == null ? null : other.userId.copy();
     }
 
     @Override
@@ -98,6 +113,38 @@ public class PostCriteria implements Serializable, Criteria {
         this.time = time;
     }
 
+    public BooleanFilter getIsNameVisibale() {
+        return isNameVisibale;
+    }
+
+    public void setIsNameVisibale(BooleanFilter isNameVisibale) {
+        this.isNameVisibale = isNameVisibale;
+    }
+
+    public BooleanFilter getIsPhotoVisibale() {
+        return isPhotoVisibale;
+    }
+
+    public void setIsPhotoVisibale(BooleanFilter isPhotoVisibale) {
+        this.isPhotoVisibale = isPhotoVisibale;
+    }
+
+    public IntegerFilter getNbreLike() {
+        return nbreLike;
+    }
+
+    public void setNbreLike(IntegerFilter nbreLike) {
+        this.nbreLike = nbreLike;
+    }
+
+    public IntegerFilter getNbreComments() {
+        return nbreComments;
+    }
+
+    public void setNbreComments(IntegerFilter nbreComments) {
+        this.nbreComments = nbreComments;
+    }
+
     public LongFilter getCommentsId() {
         return commentsId;
     }
@@ -112,6 +159,14 @@ public class PostCriteria implements Serializable, Criteria {
 
     public void setFilesPostId(LongFilter filesPostId) {
         this.filesPostId = filesPostId;
+    }
+
+    public LongFilter getUserId() {
+        return userId;
+    }
+
+    public void setUserId(LongFilter userId) {
+        this.userId = userId;
     }
 
 
@@ -130,8 +185,13 @@ public class PostCriteria implements Serializable, Criteria {
             Objects.equals(content, that.content) &&
             Objects.equals(datePub, that.datePub) &&
             Objects.equals(time, that.time) &&
+            Objects.equals(isNameVisibale, that.isNameVisibale) &&
+            Objects.equals(isPhotoVisibale, that.isPhotoVisibale) &&
+            Objects.equals(nbreLike, that.nbreLike) &&
+            Objects.equals(nbreComments, that.nbreComments) &&
             Objects.equals(commentsId, that.commentsId) &&
-            Objects.equals(filesPostId, that.filesPostId);
+            Objects.equals(filesPostId, that.filesPostId) &&
+            Objects.equals(userId, that.userId);
     }
 
     @Override
@@ -142,8 +202,13 @@ public class PostCriteria implements Serializable, Criteria {
         content,
         datePub,
         time,
+        isNameVisibale,
+        isPhotoVisibale,
+        nbreLike,
+        nbreComments,
         commentsId,
-        filesPostId
+        filesPostId,
+        userId
         );
     }
 
@@ -156,8 +221,13 @@ public class PostCriteria implements Serializable, Criteria {
                 (content != null ? "content=" + content + ", " : "") +
                 (datePub != null ? "datePub=" + datePub + ", " : "") +
                 (time != null ? "time=" + time + ", " : "") +
+                (isNameVisibale != null ? "isNameVisibale=" + isNameVisibale + ", " : "") +
+                (isPhotoVisibale != null ? "isPhotoVisibale=" + isPhotoVisibale + ", " : "") +
+                (nbreLike != null ? "nbreLike=" + nbreLike + ", " : "") +
+                (nbreComments != null ? "nbreComments=" + nbreComments + ", " : "") +
                 (commentsId != null ? "commentsId=" + commentsId + ", " : "") +
                 (filesPostId != null ? "filesPostId=" + filesPostId + ", " : "") +
+                (userId != null ? "userId=" + userId + ", " : "") +
             "}";
     }
 

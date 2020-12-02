@@ -38,13 +38,13 @@
                     <label class="form-control-label" for="field_parent">Parent</label>
                     <select class="form-control" id="field_parent" name="parent" formControlName="parentId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="commentsOption.id" *ngFor="let commentsOption of commentsCollection; trackBy: trackById">{{ commentsOption.id }}</option>
+                        <option [ngValue]="commentsOption.id" *ngFor="let commentsOption of comments; trackBy: trackById">{{ commentsOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" for="field_comments">Comments</label>
-                    <select class="form-control" id="field_comments" name="comments" formControlName="commentsId">
+                    <label class="form-control-label" for="field_post">Post</label>
+                    <select class="form-control" id="field_post" name="post" formControlName="postId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="postOption.id" *ngFor="let postOption of posts; trackBy: trackById">{{ postOption.id }}</option>
                     </select>

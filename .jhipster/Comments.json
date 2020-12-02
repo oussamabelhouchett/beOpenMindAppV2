@@ -16,6 +16,12 @@
   ],
   "relationships": [
     {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "applicationUser",
+      "otherEntityRelationshipName": "comments",
+      "relationshipName": "user"
+    },
+    {
       "relationshipType": "many-to-one",
       "otherEntityName": "comments",
       "otherEntityRelationshipName": "comments",
@@ -26,7 +32,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "post",
       "otherEntityRelationshipName": "comments",
-      "relationshipName": "comments",
+      "relationshipName": "post",
       "otherEntityField": "id"
     }
   ],

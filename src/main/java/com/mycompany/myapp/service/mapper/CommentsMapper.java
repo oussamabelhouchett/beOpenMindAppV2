@@ -13,11 +13,13 @@ import org.mapstruct.*;
 public interface CommentsMapper extends EntityMapper<CommentsDTO, Comments> {
 
     @Mapping(source = "parent.id", target = "parentId")
-    @Mapping(source = "comments.id", target = "commentsId")
+    @Mapping(source = "post.id", target = "postId")
     CommentsDTO toDto(Comments comments);
 
+    @Mapping(target = "users", ignore = true)
+    @Mapping(target = "removeUser", ignore = true)
     @Mapping(source = "parentId", target = "parent")
-    @Mapping(source = "commentsId", target = "comments")
+    @Mapping(source = "postId", target = "post")
     Comments toEntity(CommentsDTO commentsDTO);
 
     default Comments fromId(Long id) {

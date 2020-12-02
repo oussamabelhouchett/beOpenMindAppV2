@@ -10,6 +10,8 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A Comments.
@@ -35,13 +37,17 @@ public class Comments implements Serializable {
     @Column(name = "time")
     private Instant time;
 
+    @OneToMany(mappedBy = "comments")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<ApplicationUser> users = new HashSet<>();
+
     @ManyToOne
     @JsonIgnoreProperties(value = "comments", allowSetters = true)
     private Comments parent;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "comments", allowSetters = true)
-    private Post comments;
+    private Post post;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -91,6 +97,31 @@ public class Comments implements Serializable {
         this.time = time;
     }
 
+    public Set<ApplicationUser> getUsers() {
+        return users;
+    }
+
+    public Comments users(Set<ApplicationUser> applicationUsers) {
+        this.users = applicationUsers;
+        return this;
+    }
+
+    public Comments addUser(ApplicationUser applicationUser) {
+        this.users.add(applicationUser);
+        applicationUser.setComments(this);
+        return this;
+    }
+
+    public Comments removeUser(ApplicationUser applicationUser) {
+        this.users.remove(applicationUser);
+        applicationUser.setComments(null);
+        return this;
+    }
+
+    public void setUsers(Set<ApplicationUser> applicationUsers) {
+        this.users = applicationUsers;
+    }
+
     public Comments getParent() {
         return parent;
     }
@@ -104,17 +135,17 @@ public class Comments implements Serializable {
         this.parent = comments;
     }
 
-    public Post getComments() {
-        return comments;
+    public Post getPost() {
+        return post;
     }
 
-    public Comments comments(Post post) {
-        this.comments = post;
+    public Comments post(Post post) {
+        this.post = post;
         return this;
     }
 
-    public void setComments(Post post) {
-        this.comments = post;
+    public void setPost(Post post) {
+        this.post = post;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
