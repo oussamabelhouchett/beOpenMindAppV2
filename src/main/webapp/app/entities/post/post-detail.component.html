@@ -8,7 +8,7 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span ngbTooltip="The firstname attribute.">Title</span></dt>
+                <dt><span>Title</span></dt>
                 <dd>
                     <span>{{ post.title }}</span>
                 </dd>
@@ -23,6 +23,28 @@
                 <dt><span>Time</span></dt>
                 <dd>
                     <span>{{ post.time }}</span>
+                </dd>
+                <dt><span>Is Name Visibale</span></dt>
+                <dd>
+                    <span>{{ post.isNameVisibale }}</span>
+                </dd>
+                <dt><span>Is Photo Visibale</span></dt>
+                <dd>
+                    <span>{{ post.isPhotoVisibale }}</span>
+                </dd>
+                <dt><span>Nbre Like</span></dt>
+                <dd>
+                    <span>{{ post.nbreLike }}</span>
+                </dd>
+                <dt><span>Nbre Comments</span></dt>
+                <dd>
+                    <span>{{ post.nbreComments }}</span>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    <div *ngIf="post.userId">
+                        <a [routerLink]="['/application-user', post.userId, 'view']">{{ post.userId }}</a>
+                    </div>
                 </dd>
             </dl>
 

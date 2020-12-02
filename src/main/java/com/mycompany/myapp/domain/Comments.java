@@ -41,7 +41,11 @@ public class Comments implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "comments", allowSetters = true)
-    private Post comments;
+    private ApplicationUser user;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "comments", allowSetters = true)
+    private Post post;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -104,17 +108,30 @@ public class Comments implements Serializable {
         this.parent = comments;
     }
 
-    public Post getComments() {
-        return comments;
+    public ApplicationUser getUser() {
+        return user;
     }
 
-    public Comments comments(Post post) {
-        this.comments = post;
+    public Comments user(ApplicationUser applicationUser) {
+        this.user = applicationUser;
         return this;
     }
 
-    public void setComments(Post post) {
-        this.comments = post;
+    public void setUser(ApplicationUser applicationUser) {
+        this.user = applicationUser;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public Comments post(Post post) {
+        this.post = post;
+        return this;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

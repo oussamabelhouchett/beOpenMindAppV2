@@ -6,7 +6,8 @@ export interface IComments {
   datePub?: Moment;
   time?: Moment;
   parentId?: number;
-  commentsId?: number;
+  userId?: number;
+  postId?: number;
 }
 
 export class Comments implements IComments {
@@ -16,6 +17,7 @@ export class Comments implements IComments {
     public datePub?: Moment,
     public time?: Moment,
     public parentId?: number,
-    public commentsId?: number
+    public userId?: number,
+    public postId?: number
   ) {}
 }

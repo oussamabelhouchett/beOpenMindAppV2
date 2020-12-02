@@ -9,6 +9,8 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
 import { IPost, Post } from 'app/shared/model/post.model';
 import { PostService } from './post.service';
+import { IApplicationUser } from 'app/shared/model/application-user.model';
+import { ApplicationUserService } from 'app/entities/application-user/application-user.service';
 
 @Component({
   selector: 'jhi-post-update',
@@ -16,6 +18,7 @@ import { PostService } from './post.service';
 })
 export class PostUpdateComponent implements OnInit {
   isSaving = false;
+  applicationusers: IApplicationUser[] = [];
   datePubDp: any;
 
   editForm = this.fb.group({
@@ -24,9 +27,19 @@ export class PostUpdateComponent implements OnInit {
     content: [],
     datePub: [],
     time: [],
+    isNameVisibale: [],
+    isPhotoVisibale: [],
+    nbreLike: [],
+    nbreComments: [],
+    userId: [],
   });
 
-  constructor(protected postService: PostService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected postService: PostService,
+    protected applicationUserService: ApplicationUserService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ post }) => {
@@ -36,6 +49,8 @@ export class PostUpdateComponent implements OnInit {
       }
 
       this.updateForm(post);
+
+      this.applicationUserService.query().subscribe((res: HttpResponse<IApplicationUser[]>) => (this.applicationusers = res.body || []));
     });
   }
 
@@ -46,6 +61,11 @@ export class PostUpdateComponent implements OnInit {
       content: post.content,
       datePub: post.datePub,
       time: post.time ? post.time.format(DATE_TIME_FORMAT) : null,
+      isNameVisibale: post.isNameVisibale,
+      isPhotoVisibale: post.isPhotoVisibale,
+      nbreLike: post.nbreLike,
+      nbreComments: post.nbreComments,
+      userId: post.userId,
     });
   }
 
@@ -71,6 +91,11 @@ export class PostUpdateComponent implements OnInit {
       content: this.editForm.get(['content'])!.value,
       datePub: this.editForm.get(['datePub'])!.value,
       time: this.editForm.get(['time'])!.value ? moment(this.editForm.get(['time'])!.value, DATE_TIME_FORMAT) : undefined,
+      isNameVisibale: this.editForm.get(['isNameVisibale'])!.value,
+      isPhotoVisibale: this.editForm.get(['isPhotoVisibale'])!.value,
+      nbreLike: this.editForm.get(['nbreLike'])!.value,
+      nbreComments: this.editForm.get(['nbreComments'])!.value,
+      userId: this.editForm.get(['userId'])!.value,
     };
   }
 
@@ -88,5 +113,9 @@ export class PostUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IApplicationUser): any {
+    return item.id;
   }
 }

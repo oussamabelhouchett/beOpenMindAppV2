@@ -16,6 +16,14 @@ import { RouterModule } from '@angular/router';
         path: 'comments',
         loadChildren: () => import('./comments/comments.module').then(m => m.BeOpenMindAppV2CommentsModule),
       },
+      {
+        path: 'reaction',
+        loadChildren: () => import('./reaction/reaction.module').then(m => m.BeOpenMindAppV2ReactionModule),
+      },
+      {
+        path: 'application-user',
+        loadChildren: () => import('./application-user/application-user.module').then(m => m.BeOpenMindAppV2ApplicationUserModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

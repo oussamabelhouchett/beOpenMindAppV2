@@ -45,7 +45,8 @@
                     <th scope="col"  jhiSortBy="datePub"><span>Date Pub</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="time"><span>Time</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="parentId"><span>Parent</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="commentsId"><span>Comments</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userId"><span>User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="postId"><span>Post</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -61,8 +62,13 @@
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="comments.commentsId">
-                            <a [routerLink]="['/post', comments.commentsId , 'view']" >{{ comments.commentsId }}</a>
+                        <div *ngIf="comments.userId">
+                            <a [routerLink]="['/application-user', comments.userId , 'view']" >{{ comments.userId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comments.postId">
+                            <a [routerLink]="['/post', comments.postId , 'view']" >{{ comments.postId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

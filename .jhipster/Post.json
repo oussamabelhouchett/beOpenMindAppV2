@@ -3,8 +3,7 @@
   "fields": [
     {
       "fieldName": "title",
-      "fieldType": "String",
-      "javadoc": "The firstname attribute."
+      "fieldType": "String"
     },
     {
       "fieldName": "content",
@@ -17,21 +16,43 @@
     {
       "fieldName": "time",
       "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isNameVisibale",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isPhotoVisibale",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "nbreLike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nbreComments",
+      "fieldType": "Integer"
     }
   ],
   "relationships": [
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "comments",
-      "otherEntityRelationshipName": "comments",
+      "otherEntityRelationshipName": "post",
       "relationshipName": "comments"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "filesPost",
       "otherEntityRelationshipName": "filesPost",
-      "javadoc": "A relationship",
       "relationshipName": "filesPost"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "applicationUser",
+      "otherEntityRelationshipName": "post",
+      "relationshipName": "user",
+      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20201128162425",

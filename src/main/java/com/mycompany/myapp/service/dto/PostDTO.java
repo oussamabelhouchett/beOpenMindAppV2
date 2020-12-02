@@ -1,7 +1,6 @@
 package com.mycompany.myapp.service.dto;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.io.Serializable;
@@ -14,10 +13,6 @@ public class PostDTO implements Serializable {
     
     private Long id;
 
-    /**
-     * The firstname attribute.
-     */
-    @ApiModelProperty(value = "The firstname attribute.")
     private String title;
 
     private String content;
@@ -26,10 +21,16 @@ public class PostDTO implements Serializable {
 
     private Instant time;
 
-    /**
-     * A relationship
-     */
-    @ApiModelProperty(value = "A relationship")
+    private Boolean isNameVisibale;
+
+    private Boolean isPhotoVisibale;
+
+    private Integer nbreLike;
+
+    private Integer nbreComments;
+
+
+    private Long userId;
     
     public Long getId() {
         return id;
@@ -71,6 +72,46 @@ public class PostDTO implements Serializable {
         this.time = time;
     }
 
+    public Boolean isIsNameVisibale() {
+        return isNameVisibale;
+    }
+
+    public void setIsNameVisibale(Boolean isNameVisibale) {
+        this.isNameVisibale = isNameVisibale;
+    }
+
+    public Boolean isIsPhotoVisibale() {
+        return isPhotoVisibale;
+    }
+
+    public void setIsPhotoVisibale(Boolean isPhotoVisibale) {
+        this.isPhotoVisibale = isPhotoVisibale;
+    }
+
+    public Integer getNbreLike() {
+        return nbreLike;
+    }
+
+    public void setNbreLike(Integer nbreLike) {
+        this.nbreLike = nbreLike;
+    }
+
+    public Integer getNbreComments() {
+        return nbreComments;
+    }
+
+    public void setNbreComments(Integer nbreComments) {
+        this.nbreComments = nbreComments;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long applicationUserId) {
+        this.userId = applicationUserId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -97,6 +138,11 @@ public class PostDTO implements Serializable {
             ", content='" + getContent() + "'" +
             ", datePub='" + getDatePub() + "'" +
             ", time='" + getTime() + "'" +
+            ", isNameVisibale='" + isIsNameVisibale() + "'" +
+            ", isPhotoVisibale='" + isIsPhotoVisibale() + "'" +
+            ", nbreLike=" + getNbreLike() +
+            ", nbreComments=" + getNbreComments() +
+            ", userId=" + getUserId() +
             "}";
     }
 }
