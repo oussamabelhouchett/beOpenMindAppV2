@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "The Employee entity.")
 public class PostDTO implements Serializable {
-    
+
     private Long id;
 
     private String title;
@@ -31,7 +31,43 @@ public class PostDTO implements Serializable {
 
 
     private Long userId;
-    
+    private Long userAppId;
+    private String firstName;
+    private String lastName;
+    private String imageUrl;
+
+    public Long getUserAppId() {
+        return userAppId;
+    }
+
+    public void setUserAppId(Long userAppId) {
+        this.userAppId = userAppId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public Long getId() {
         return id;
     }
@@ -130,19 +166,24 @@ public class PostDTO implements Serializable {
     }
 
     // prettier-ignore
+
     @Override
     public String toString() {
         return "PostDTO{" +
-            "id=" + getId() +
-            ", title='" + getTitle() + "'" +
-            ", content='" + getContent() + "'" +
-            ", datePub='" + getDatePub() + "'" +
-            ", time='" + getTime() + "'" +
-            ", isNameVisibale='" + isIsNameVisibale() + "'" +
-            ", isPhotoVisibale='" + isIsPhotoVisibale() + "'" +
-            ", nbreLike=" + getNbreLike() +
-            ", nbreComments=" + getNbreComments() +
-            ", userId=" + getUserId() +
-            "}";
+            "id=" + id +
+            ", title='" + title + '\'' +
+            ", content='" + content + '\'' +
+            ", datePub=" + datePub +
+            ", time=" + time +
+            ", isNameVisibale=" + isNameVisibale +
+            ", isPhotoVisibale=" + isPhotoVisibale +
+            ", nbreLike=" + nbreLike +
+            ", nbreComments=" + nbreComments +
+            ", userId=" + userId +
+            ", userAppId=" + userAppId +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", imageUrl='" + imageUrl + '\'' +
+            '}';
     }
 }

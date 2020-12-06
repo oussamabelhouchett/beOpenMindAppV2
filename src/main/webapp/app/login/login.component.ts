@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
           });
           if (res!.authorities.includes('ROLE_ADMIN')) this.router.navigateByUrl('/home');
           else this.router.navigateByUrl('/accueil');
+          this.stateStorageService.storeAccount(res);
           // previousState was set in the authExpiredInterceptor before being redirected to login modal.
           // since login is successful, go to stored previousState and clear previousState
           const redirect = this.stateStorageService.getUrl();

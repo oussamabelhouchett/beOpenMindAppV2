@@ -7,7 +7,7 @@ import java.io.Serializable;
  * A DTO for the {@link com.mycompany.myapp.domain.ApplicationUser} entity.
  */
 public class ApplicationUserDTO implements Serializable {
-    
+
     private Long id;
 
     @Min(value = 42)
@@ -16,7 +16,35 @@ public class ApplicationUserDTO implements Serializable {
 
 
     private Long userId;
-    
+    private String firstName;
+    private String lastName;
+    private String imageUrl;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+
+
     public Long getId() {
         return id;
     }
@@ -59,12 +87,16 @@ public class ApplicationUserDTO implements Serializable {
     }
 
     // prettier-ignore
+
     @Override
     public String toString() {
         return "ApplicationUserDTO{" +
-            "id=" + getId() +
-            ", additionalField=" + getAdditionalField() +
-            ", userId=" + getUserId() +
-            "}";
+            "id=" + id +
+            ", additionalField=" + additionalField +
+            ", userId=" + userId +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", imageUrl='" + imageUrl + '\'' +
+            '}';
     }
 }

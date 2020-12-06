@@ -1435,7 +1435,7 @@ textarea:focus {
 .card {
   border: none;
   border-radius: 0;
-  padding: 30px;
+  padding: 15px;
   margin-bottom: 30px;
   -webkit-box-shadow: 0px 1px 15px 0px rgba(51, 51, 51, 0.2);
   box-shadow: 0px 1px 15px 0px rgba(51, 51, 51, 0.2);
@@ -1882,8 +1882,8 @@ textarea:focus {
 }
 
 .profile-thumb-middle {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   display: block;
   border-radius: 50%;
   overflow: hidden;
@@ -3510,5 +3510,72 @@ textarea:focus {
 .color-transparent {
   background-color: transparent;
 }
-
+.button-new-post {
+  line-height: 1.5;
+  font-size: 1.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 35px !important;
+  padding-left: 16px !important;
+  padding-top: 16px !important;
+  padding-right: 40%;
+  padding-bottom: 16px !important;
+  background-color: var(--color-transparent);
+  color: var(--color-text-low-emphasis);
+  text-align: left;
+}
+.button-new-post:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.ppl-1 {
+  padding-left: 1px;
+}
+.button-new-post-input {
+  font-size: 1rem;
+  color: gray;
+}
+.color-gray {
+  color: gray;
+}
+.secure-photo {
+  background-image: url('../images/secure-photo.png');
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+}
+.heart-style {
+  color: #ef4fa6;
+  padding: 0px;
+  height: 20px;
+  width: 15px;
+}
+.texterea-border {
+  border-radius: 1rem;
+}
+.my-class > .modal-dialog {
+  width: 100%;
+  font-size: 2rem;
+  .modal-content {
+    border-radius: 1rem !important;
+  }
+}
+.close:hover {
+  background-color: gray;
+}
+/*
+::ng-deep .my-class {
+  font-size: 2rem;
+  .modal-dialog {
+    background-color: yellow;
+    padding:1rem;
+  }
+  .modal-content {
+    color: white;
+  }
+  .modal-header {
+    background-color: red;
+  }
+  .modal-body {
+    background-color: green;
+  }
+}*/
 /*------- mobile footer area end -------*/
