@@ -11,8 +11,10 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = {UserMapper.class})
 public interface ApplicationUserMapper extends EntityMapper<ApplicationUserDTO, ApplicationUser> {
-
     @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "user.firstName", target = "firstName")
+    @Mapping(source = "user.lastName", target = "lastName")
+    @Mapping(source = "user.imageUrl", target = "imageUrl")
     ApplicationUserDTO toDto(ApplicationUser applicationUser);
 
     @Mapping(source = "userId", target = "user")

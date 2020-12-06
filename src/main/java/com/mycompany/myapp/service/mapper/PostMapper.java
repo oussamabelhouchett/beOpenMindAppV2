@@ -9,10 +9,18 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Post} and its DTO {@link PostDTO}.
  */
-@Mapper(componentModel = "spring", uses = {ApplicationUserMapper.class})
+@Mapper(componentModel = "spring", uses = {ApplicationUserMapper.class,UserMapper.class})
 public interface PostMapper extends EntityMapper<PostDTO, Post> {
 
-    @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "user.id", target = "userAppId")
+    @Mapping(source = "user.user.id", target = "userId")
+
+    @Mapping(source = "user.user.firstName", target = "firstName")
+
+    @Mapping(source = "user.user.lastName", target = "lastName")
+
+    @Mapping(source = "user.user.imageUrl", target = "imageUrl")
+
     PostDTO toDto(Post post);
 
     @Mapping(target = "comments", ignore = true)

@@ -15,6 +15,10 @@ export interface IPost {
   comments?: IComments[];
   filesPosts?: IFilesPost[];
   userId?: number;
+  userAppId?: number;
+  firstName?: string;
+  lastName?: string;
+  imageUrl?: string;
 }
 
 export class Post implements IPost {
@@ -30,7 +34,11 @@ export class Post implements IPost {
     public nbreComments?: number,
     public comments?: IComments[],
     public filesPosts?: IFilesPost[],
-    public userId?: number
+    public userId?: number,
+    public userAppId?: number,
+    public firstName?: string,
+    public lastName?: string,
+    public imageUrl?: string
   ) {
     this.isNameVisibale = this.isNameVisibale || false;
     this.isPhotoVisibale = this.isPhotoVisibale || false;
