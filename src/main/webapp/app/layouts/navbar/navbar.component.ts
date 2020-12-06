@@ -6,6 +6,7 @@ import { AccountService } from 'app/core/auth/account.service';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { LoginService } from 'app/core/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { StateStorageService } from 'app/core/auth/state-storage.service';
 
 @Component({
   selector: 'jhi-navbar',
@@ -22,6 +23,7 @@ export class NavbarComponent implements OnInit {
     private loginService: LoginService,
     private accountService: AccountService,
     private loginModalService: LoginModalService,
+    private stateStorageService: StateStorageService,
     private profileService: ProfileService,
     private router: Router
   ) {
@@ -51,6 +53,7 @@ export class NavbarComponent implements OnInit {
     this.collapseNavbar();
     this.loginService.logout();
     this.router.navigate(['']);
+    this.stateStorageService.storeAccount(null);
   }
 
   toggleNavbar(): void {

@@ -1,0 +1,21 @@
+<ng-container *ngIf="currentAccount">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Cree un post</h4>
+        <button type="button" class="close" aria-label="Close" *ngIf="modelRef" (click)="modelRef.close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+
+                    <div class="form-group">
+
+                        <textarea class="form-control texterea-border" placeholder="De quoi Souhaitez vous discuter ?" id="exampleFormControlTextarea1" rows="3"  (change)="doTextareaValueChange($event)"></textarea>
+                    </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" (click)="save()">share</button>
+    </div>
+
+</ng-container>
