@@ -40,3 +40,6 @@ Logo styles
   background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
   background-size: contain;
 }
+.navbar-nav .active > .nav-link {
+  border-bottom: 2px solid #5bc0eb;
+}

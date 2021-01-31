@@ -3,8 +3,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from 'app/shared/constants/error.constants';
-import { LoginModalService } from 'app/core/login/login-modal.service';
 import { RegisterService } from './register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-register',
@@ -35,7 +35,7 @@ export class RegisterComponent implements AfterViewInit {
     confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
   });
 
-  constructor(private loginModalService: LoginModalService, private registerService: RegisterService, private fb: FormBuilder) {}
+  constructor(private registerService: RegisterService, private fb: FormBuilder, private router: Router) {}
 
   ngAfterViewInit(): void {
     if (this.login) {
@@ -63,7 +63,7 @@ export class RegisterComponent implements AfterViewInit {
   }
 
   openLogin(): void {
-    this.loginModalService.open();
+    this.router.navigate(['']);
   }
 
   private processError(response: HttpErrorResponse): void {

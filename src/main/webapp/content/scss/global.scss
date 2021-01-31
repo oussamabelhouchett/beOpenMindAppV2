@@ -197,5 +197,20 @@ ui bootstrap tweaks
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.m-top-80 {
+  margin-top: 80px;
+}
+.position-login {
+  position: absolute;
+  right: 30%;
+  left: 30%;
+}
+.color-link {
+  color: #533f03;
+}
+.card {
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
