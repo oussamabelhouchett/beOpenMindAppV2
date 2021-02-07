@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import com.mycompany.myapp.config.KafkaProperties;
 import com.mycompany.myapp.domain.Comments;
 
-@Service
+//@Service
 public class CommentsProducer {
 
     enum CommentsProducerKey {

@@ -12,7 +12,7 @@ import com.mycompany.myapp.config.KafkaProperties;
 import com.mycompany.myapp.domain.Post;
 import com.mycompany.myapp.service.kafka.serde.DeserializationError;
 
-@Service
+//@Service
 public class PostConsumer extends GenericConsumer<Post> {
 
     private final Logger log = LoggerFactory.getLogger(PostConsumer.class);

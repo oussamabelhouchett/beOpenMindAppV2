@@ -12,7 +12,7 @@ import com.mycompany.myapp.config.KafkaProperties;
 import com.mycompany.myapp.domain.Comments;
 import com.mycompany.myapp.service.kafka.serde.DeserializationError;
 
-@Service
+//@Service
 public class CommentsConsumer extends GenericConsumer<Comments> {
 
     private final Logger log = LoggerFactory.getLogger(CommentsConsumer.class);

@@ -13,8 +13,8 @@ import com.mycompany.myapp.domain.Post;
 /**
  * REST controller for managing {@link com.mycompany.myapp.domain.Post} through Kafka.
  */
-@RestController
-@RequestMapping("/api")
+//@RestController
+//@RequestMapping("/api")
 public class PostKafkaResource {
 
     private final Logger log = LoggerFactory.getLogger(PostKafkaResource.class);

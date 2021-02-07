@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
 import { IComments } from 'app/shared/model/comments.model';
 import { IFilesPost } from 'app/shared/model/files-post.model';
+import { IReaction } from './reaction.model';
 
 export interface IPost {
   id?: number;
@@ -19,6 +20,7 @@ export interface IPost {
   firstName?: string;
   lastName?: string;
   imageUrl?: string;
+  currentUserReaction?: IReaction;
 }
 
 export class Post implements IPost {

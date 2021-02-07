@@ -52,15 +52,15 @@
             </div>
             <div class="post-meta">
                 <button class="post-meta-like color-transparent">
-                    <fa-icon icon="heart" class="heart-style"   aria-hidden="true"></fa-icon>
-                    <span>You and 201 people like this</span>
-                    <strong>201</strong>
+                    <fa-icon icon="heart" size="2x" class="heart-style" (click)="like(post)"  aria-hidden="true" [ngStyle]="{'opacity':post.currentUserReaction!.isLike? 1 : 0.2 }"></fa-icon>
+                    <span>{{post.nbreLike}}</span>
+
                 </button>
                 <ul class="comment-share-meta">
                     <li>
                         <button class="post-comment color-transparent">
-                            <fa-icon icon="comments"   aria-hidden="true"></fa-icon>
-                            <span>41</span>
+                            <fa-icon icon="comments"  size="2x" aria-hidden="true" ></fa-icon>
+                            <span>{{post.nbreComments}}</span>
                         </button>
                     </li>
                    <!-- <li>

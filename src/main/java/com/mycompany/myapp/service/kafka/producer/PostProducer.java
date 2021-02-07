@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import com.mycompany.myapp.config.KafkaProperties;
 import com.mycompany.myapp.domain.Post;
 
-@Service
+//@Service
 public class PostProducer {
 
     enum PostProducerKey {

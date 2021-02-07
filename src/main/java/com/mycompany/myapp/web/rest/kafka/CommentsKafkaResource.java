@@ -13,8 +13,8 @@ import com.mycompany.myapp.domain.Comments;
 /**
  * REST controller for managing {@link com.mycompany.myapp.domain.Comments} through Kafka.
  */
-@RestController
-@RequestMapping("/api")
+//@RestController
+//@RequestMapping("/api")
 public class CommentsKafkaResource {
 
     private final Logger log = LoggerFactory.getLogger(CommentsKafkaResource.class);

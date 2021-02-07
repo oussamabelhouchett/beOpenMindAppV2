@@ -176,35 +176,34 @@ jhipster:
     contact-email:
     license: unlicensed
     license-url:
-
-kafka:
-  bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
-  polling.timeout: 10000
-  consumer:
-    post:
-      enabled: true
-      '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
-      '[value.deserializer]': com.mycompany.myapp.service.kafka.serde.PostDeserializer
-      '[group.id]': be-open-mind-app-v-2
-      '[auto.offset.reset]': earliest
-    comments:
-      enabled: true
-      '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
-      '[value.deserializer]': com.mycompany.myapp.service.kafka.serde.CommentsDeserializer
-      '[group.id]': be-open-mind-app-v-2
-      '[auto.offset.reset]': earliest
-  producer:
-    post:
-      enabled: true
-      '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
-      '[value.serializer]': com.mycompany.myapp.service.kafka.serde.PostSerializer
-    comments:
-      enabled: true
-      '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
-      '[value.serializer]': com.mycompany.myapp.service.kafka.serde.CommentsSerializer
-  topic:
-    post: queuing.be_open_mind_app_v_2.post
-    comments: queuing.be_open_mind_app_v_2.comments
+#kafka:
+#  bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+# polling.timeout: 10000
+#consumer:
+#  post:
+#enabled: true
+# '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
+# '[value.deserializer]': com.mycompany.myapp.service.kafka.serde.PostDeserializer
+#  '[group.id]': be-open-mind-app-v-2
+#   '[auto.offset.reset]': earliest
+# comments:
+#    enabled: true
+#   '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
+#   '[value.deserializer]': com.mycompany.myapp.service.kafka.serde.CommentsDeserializer
+#    '[group.id]': be-open-mind-app-v-2
+#    '[auto.offset.reset]': earliest
+# producer:
+#  post:
+# enabled: true
+# '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
+#'[value.serializer]': com.mycompany.myapp.service.kafka.serde.PostSerializer
+#comments:
+#enabled: true
+#  '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
+# '[value.serializer]': com.mycompany.myapp.service.kafka.serde.CommentsSerializer
+#topic:
+#post: queuing.be_open_mind_app_v_2.post
+#comments: queuing.be_open_mind_app_v_2.comments
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
