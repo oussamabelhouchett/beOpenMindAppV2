@@ -84,8 +84,6 @@ export class AccueilPostComponent implements OnInit, OnDestroy {
       })
       .pipe(map(responce => responce.body![0]))
       .subscribe(reaction => {
-        // eslint-disable-next-line no-console
-        console.log('---------------------------------------', reaction);
         post.currentUserReaction = reaction || new Reaction();
       });
   }
